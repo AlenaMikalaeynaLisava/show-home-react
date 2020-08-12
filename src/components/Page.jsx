@@ -21,7 +21,9 @@ export default  class MainPage extends React.Component {
                      <ShowDescriptionComponent key={show.id}
                       name={show.name} 
                       image={show.image} 
-                      language={show.language}  />)): "loading"}
+                      language={show.language}  
+                      premiered ={show.premiered}
+                      id ={show.id}/>)): "loading"}
                  </li>
             </ul>
           </div>

@@ -1,20 +1,21 @@
 import React, {Component} from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
+import withDays from '../HOC/withDaysFromPremiere'
 
 
 
 
-export default class ShowDescriptionComponent extends Component{
-    static propTypess ={
-        name: propTypes.string.isRequired,
-        language: propTypes.string.isRequired,
-        premiered: propTypes.string.isRequired,
-        image:propTypes.shape({
-            medium: propTypes.string.isRequired,
-            original: propTypes.string.isRequired,
+class ShowDescriptionComponent extends Component{
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        language: PropTypes.string.isRequired,
+        premiered: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+            medium: PropTypes.string.isRequired,
+            original: PropTypes.string.isRequired,
         }).isRequired,
-        id: propTypes.number.isRequired,      
+        id: PropTypes.number.isRequired,      
     };
     render(){
       
@@ -26,10 +27,10 @@ export default class ShowDescriptionComponent extends Component{
                 </Link>
                 <p>{this.props.language}</p>
                 <p>{this.props.premiered}</p>
+        <p>Days from premiere: {this.props.daysFromPremiere}</p>
             </div>
-        
-        )
+        ); 
     }
 } 
 
- 
+export default withDays(ShowDescriptionComponent)

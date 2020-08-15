@@ -4,11 +4,11 @@ import ShowDescriptionComponent from './SowDescriptionComponent'
 
 export default  class MainPage extends React.Component {
     state ={
-        Shows : [],
+        shows : [],
     }
     async componentDidMount() {
-        const Shows = await ApiData();
-        this.setState ({Shows});
+        const shows = await ApiData();
+        this.setState ({shows});
     }
 
     render() {
@@ -16,11 +16,11 @@ export default  class MainPage extends React.Component {
         return (
           <div className="App">  
              <ul>
-                 <li>{this.state.Shows.length>0
-                 ?this.state.Shows.map((show =>
+                 <li>{this.state.shows.length>0
+                 ?this.state.shows.map((show =>
                      <ShowDescriptionComponent key={show.id}
                       name={show.name} 
-                      image={show.image} 
+                      image={show.image.medium} 
                       language={show.language}  
                       premiered ={show.premiered}
                       id ={show.id}/>)): "loading"}

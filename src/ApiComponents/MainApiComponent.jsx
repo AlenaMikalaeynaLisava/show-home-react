@@ -10,37 +10,13 @@ export const ApiData = async ()=>{
     }
 };
 
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       request: [],
-//     };
-//   }
+export const GetSHOW = async (id)=>{
+    try {
+        const Show = `${requestAPI}/${id}`
+        const {data} = await axios.get(Show);
+        return data;
+    } catch(error){
+        return null;
+    }
+};
 
-//   componentDidMount() {
-//     axios.get(requestAPI).then(({ data }) => {
-//       console.log("1");
-//       console.log(data);
-//       this.setState({request: data});
-//     });
-//   }
-
-//   render() {
-//     //const {request} = this.state;
-//     console.log(requestAPI);
-//     return (
-//       <>
-//         {/* <ul> 
-//           {request.length > 0
-//             ? request.map((request) => (
-//                 <Request key={request.id} categories={request.categories} query={request.query} />
-//               ))
-//             : "no request found"}
-//         </ul> */}
-//       </>
-//     );
-//   }
-// }
-
-// export default App;
